@@ -1,4 +1,4 @@
-import React, { useState, useEffect, ChangeEvent, FormEvent } from 'react';
+import React, { useState, useEffect, ChangeEvent } from 'react';
 import api from '../../services/api';
 import * as S from './styled';
 
@@ -49,7 +49,7 @@ export default function Home() {
     );
 
     function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
-        const { name, value } = event.target;
+        const { value } = event.target;
 
         setSearch(value);
     }
