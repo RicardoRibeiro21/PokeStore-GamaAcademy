@@ -1,7 +1,16 @@
-import React from 'react';
+import * as React from 'react';
+import * as S from '../pages/Home/styled';
 
-export default function Navbar() {
+
+type MenuProps = {
+    funcao: Function;
+}
+
+export const Menu = ({ funcao }: MenuProps) => {
     return (
-        <div> Olá mundo!</div>
+        <S.Menu>
+            <S.Input onChange={funcao} placeholder="Digite o nome do pokémon" />
+            <S.ButtonStore>Pesquisar</S.ButtonStore>
+        </S.Menu>
     )
 }

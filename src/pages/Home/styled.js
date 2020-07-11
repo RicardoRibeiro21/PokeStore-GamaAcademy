@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+const a = document.getElementById('root').style = `
+    margin-top: -7px;    
+`
+
 export const Menu = styled.div`
     width: 90%;
     height: 3rem;
@@ -47,12 +51,11 @@ export const ContainerCards = styled.div`
 
 export const Card = styled.div`
     margin: 5% 5%;
-    padding: .5rem;
+    padding: 1rem;
     border-bottom: #EB2049 groove 2px;
     border-top-left-radius: .5rem;
     border-top-right-radius: .5rem;
-    &:hover {
-        opacity: 75%; 
+    &:hover {        
         transition: 0.5s;
         background: #333; 
         color: white;                 
@@ -100,8 +103,7 @@ export const ButtonStore = styled.button`
     };
     &:hover {
         transition: 0.2s;
-        height: 2.5rem;
-        width: 35%;
+        height: 2.5rem;        
     };
 `;
 
@@ -145,9 +147,7 @@ export const Table = styled.table`
 export const TableRow = styled.tr`
     cursor: pointer;    
     &:hover {
-        opacity: 75%;        
-        background: #333;
-        color: #fff;
+        opacity: 75%;            
     };
 `;
 
@@ -165,4 +165,5 @@ export const CarrinhoFooter = styled.div`
    background: #333;
    justify-content: space-around;
    border-radius: .5rem;
+   
 `;

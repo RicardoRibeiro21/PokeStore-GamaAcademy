@@ -1,6 +1,7 @@
 import React, { useState, useEffect, ChangeEvent } from 'react';
 import api from '../../services/api';
 import * as S from './styled';
+import { Menu } from '../../components/navbar';
 
 interface PokemonBase {
     name: string,
@@ -79,13 +80,11 @@ export default function Home() {
 
     return (
         <S.Body>
-            <S.Menu>
-                <S.Input onChange={handleInputChange} placeholder="Digite o nome do pokémon" />
-            </S.Menu>
+            <Menu funcao={handleInputChange} />
             <S.Content>
                 <S.ContainerCards>
                     {
-                        pokemons.map((pokemon, index) => {
+                        DataFiltra.map((pokemon, index) => {
                             return (
                                 <S.Card key={index}>
                                     <S.Img src={pokemon.img}></S.Img>
@@ -108,8 +107,6 @@ export default function Home() {
                             <S.TableColumn>Nome</S.TableColumn>
                             <S.TableColumn>Preço</S.TableColumn>
                         </thead> */}
-                        <tbody>
-                        </tbody>
                         {
                             pokemonsSelected.map((pokemon, index) => {
                                 return (
