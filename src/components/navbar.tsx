@@ -1,7 +1,6 @@
 import * as React from 'react';
 import * as S from '../pages/Home/styled';
 
-
 type MenuProps = {
     funcao: Function;
 }

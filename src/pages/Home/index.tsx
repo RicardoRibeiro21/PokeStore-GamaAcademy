@@ -2,19 +2,8 @@ import React, { useState, useEffect, ChangeEvent } from 'react';
 import api from '../../services/api';
 import * as S from './styled';
 import { Menu } from '../../components/navbar';
-
-interface PokemonBase {
-    name: string,
-    url: string
-}
-
-interface Pokemon {
-    name: string,
-    url: string,
-    img: string,
-    weight: number,
-    price: string
-}
+import { Pokemon, PokemonBase } from '../../interfaces/interfaces';
+import ModalPokemon  from '../../components/modal';
 
 export default function Home() {
     const [pokemons, setPokemons] = useState<Pokemon[]>([]);
@@ -125,6 +114,7 @@ export default function Home() {
                         <S.ButtonStore>Finalizar Compra</S.ButtonStore>
                     </S.CarrinhoFooter>
                 </S.Carrinho>
+                <ModalPokemon />
             </S.Content>
         </S.Body>
     )
