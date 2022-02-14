@@ -4,16 +4,21 @@ import * as S from './styled';
 import { Menu } from '../../components/navbar';
 import { Pokemon, PokemonBase } from '../../interfaces/interfaces';
 import ModalPokemon  from '../../components/modal';
+import Axios from 'axios';
 
 export default function Home() {
     const [pokemons, setPokemons] = useState<Pokemon[]>([]);
+    // Pokemons selecionados para o carrinho
     const [pokemonsSelected, setPokemonsSelected] = useState<Pokemon[]>([]);
     const [priceTotal, setPriceTotal] = useState<number>();
     const [sizeKart, setSizeKart] = useState<number>(Number);
-    const dados: Pokemon[] = [];
     const [search, setSearch] = useState<String>(String);
+    // Pokemon selecionado (modal)
+    const [itemSelected, setItemSelected ] = useState<Pokemon>();
+    // Usada para criar o filtro
+    const dados: Pokemon[] = [];
 
-    useEffect(() => {
+    useEffect(() => {        
         api.get('?limit=20')
             .then((response) => response.data.results.map((item: PokemonBase) => {
                 api.get(`/${item.name}`).then((pokemon => {
@@ -67,6 +72,10 @@ export default function Home() {
         console.log(priceTotal);
     }, [pokemonsSelected])
 
+    useEffect(() => {
+
+    })
+
     return (
         <S.Body>
             <Menu funcao={handleInputChange} />
@@ -80,7 +89,7 @@ export default function Home() {
                                     <p>{pokemon.name}</p>
                                     <p>Peso {pokemon.weight / 10} Kg </p>
                                     <p>R$ {pokemon.price}</p>
-                                    <S.Button onClick={() => handleSelectedItem(pokemon)}>Adicionar ao carrinho</S.Button>
+                                    <S.Button onClick={() => handleSelectedItem(pokemon)}>Adicionar </S.Button>
                                 </S.Card>
                             )
                         })
@@ -91,11 +100,6 @@ export default function Home() {
                     </div>
                     <h1> Carrinho</h1>
                     <S.Table>
-                        {/* <thead>
-                            <S.TableColumn></S.TableColumn>
-                            <S.TableColumn>Nome</S.TableColumn>
-                            <S.TableColumn>Preço</S.TableColumn>
-                        </thead> */}
                         {
                             pokemonsSelected.map((pokemon, index) => {
                                 return (
@@ -114,7 +118,7 @@ export default function Home() {
                         <S.ButtonStore>Finalizar Compra</S.ButtonStore>
                     </S.CarrinhoFooter>
                 </S.Carrinho>
-                <ModalPokemon />
+                {/* <ModalPokemon /> */}
             </S.Content>
         </S.Body>
     )

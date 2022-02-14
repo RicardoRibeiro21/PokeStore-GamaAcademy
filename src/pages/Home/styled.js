@@ -138,7 +138,7 @@ export const Table = styled.table`
    img {
        height: 120%;
        width: 70%;
-   },
+   };
    thead, tbody{
        display: block;  
     }
